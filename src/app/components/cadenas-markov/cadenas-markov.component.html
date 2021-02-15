@@ -1,0 +1,50 @@
+<div class="container">
+    <p>
+        Este programa se basa en encontrar el camino que lleve al objetivo al usuario. <br> De forma aleatoria se marcarán casillas bloqueadas con una X y el usuario se posicionará en una casilla random y el programa buscará de forma automatica la ruta.
+    </p>
+
+    <div class="mt-5">
+        <table class="table-bordered border-primary text-center">
+            <tbody>
+                <tr>
+                    <td>-</td>
+                    <td>A</td>
+                    <td>B</td>
+                    <td>C</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><i class="fas fa-skull" *ngIf="this.randomPosition.A1"></i></td>
+                    <td><i class="fas fa-skull" *ngIf="this.randomPosition.B1"></i></td>
+                    <td><i class="fas fa-skull" *ngIf="this.randomPosition.C1"></i></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><i class="fas fa-skull" *ngIf="this.randomPosition.A2"></i></td>
+                    <td><i class="fas fa-user-ninja"></i></td>
+                    <td><i class="fas fa-skull" *ngIf="this.randomPosition.C2"></i></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><i class="fas fa-skull" *ngIf="this.randomPosition.A3"></i></td>
+                    <td><i class="fas fa-skull" *ngIf="this.randomPosition.B3"></i></td>
+                    <td><i class="fas fa-award"></i></td>
+                </tr>
+        </table>
+
+        <button type="button" class="btn btn-primary mt-5" (click)="selectWay()">Calcular camino</button>
+
+        <div class="container">
+            <div class="row" *ngIf="posibleWayToString.length > 0">
+                <div class="col-md-6 mt-5">
+                    <label class="col-md-12"> Estos son los posibles caminos: </label>
+                    <label class="col-md-12" *ngFor="let posibleWay of posibleWayToString; let i = index">Camino{{i+1}}: {{posibleWay.pWay}}</label>
+                </div>
+                <div class="col-md-6 mt-5">
+                    <label class="col-md-12"> Estos son los mejores caminos: </label>
+                    <label class="col-md-12" *ngFor="let bestWay of bestWayToString; let i = index">Camino{{i+1}}: {{bestWay.bWay}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
